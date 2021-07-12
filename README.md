@@ -15,8 +15,14 @@ git clone https://github.com/luispaulotoniettefranca/short.git
 
 - Access project folder
 - Rename ``` .env.example ``` file to ``` .env ```
+- Adjust ``` .env ``` file as you want
+  
+<hr>
+
 - Run:
 ```bash
+docker run --rm \ -u "$(id -u):$(id -g)" \ -v $(pwd):/opt \ -w /opt \ laravelsail/php80-composer:latest \ composer install --ignore-platform-reqs
+alias sail='bash vendor/bin/sail'
 sail up -d
 sail composer install
 sail artisan key:generate
