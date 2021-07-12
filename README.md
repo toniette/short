@@ -2,6 +2,7 @@
 
 ### Requirements
 - Docker
+- Composer
 
 <hr>
 
