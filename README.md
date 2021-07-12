@@ -14,6 +14,12 @@ git clone https://github.com/luispaulotoniettefranca/short.git
 <hr>
 
 - Access project folder
+```bash
+cd short/
+```
+
+<hr>
+
 - Rename ``` .env.example ``` file to ``` .env ```
 - Run:
 ```bash
