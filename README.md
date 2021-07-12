@@ -29,9 +29,8 @@ cd short/
 ```bash
 docker run --rm \ -u "$(id -u):$(id -g)" \ -v $(pwd):/opt \ -w /opt \ laravelsail/php80-composer:latest \ composer install --ignore-platform-reqs
 alias sail='bash vendor/bin/sail'
-sail up -d
-sail composer install
-sail artisan key:generate
+vendor/bin/sail up -d
+vendor/bin/sail artisan key:generate
 sail artisan migrate
 ```
 <hr>
