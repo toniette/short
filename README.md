@@ -41,7 +41,7 @@ vendor/bin/sail up -d
 vendor/bin/sail artisan key:generate
 ```
 ```bash
-sail artisan migrate
+vendor/bin/sail artisan migrate
 ```
 
 <hr>
