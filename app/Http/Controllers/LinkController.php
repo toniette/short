@@ -26,9 +26,7 @@ class LinkController extends Controller
     {
         $user = User::whereName($request->user_id)->first();
         if (!$user) {
-            return response()->json([
-                'error' => 'User not found!'
-            ], 404);
+            return response()->json(status: 404);
         }
         try {
             $link = Link::create([
@@ -46,7 +44,11 @@ class LinkController extends Controller
     public function destroy($id)
     {
         try {
-            Link::destroy($id);
+            $link = Link::find($id);
+            if (!$link) {
+                return response(status: 404);
+            }
+            $link->delete();
             return response(status: 204);
         } catch (\Throwable $throwable) {
             return response()->json([

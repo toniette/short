@@ -42,7 +42,11 @@ class UserController extends Controller
     public function destroy(Request $request)
     {
         try {
-            User::whereName($request->user_id)->delete();
+            $user = User::whereName($request->user_id)->first();
+            if (!$user) {
+                return response(status: 404);
+            }
+            $user->delete();
             return response(status: 204);
         } catch (\Throwable $throwable) {
             return response()->json(['error' => $throwable->getMessage()], 500);
