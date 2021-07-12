@@ -2,6 +2,7 @@
 
 ### Requirements
 - Docker
+- Composer
 
 <hr>
 
@@ -14,6 +15,12 @@ git clone https://github.com/luispaulotoniettefranca/short.git
 <hr>
 
 - Access project folder
+```bash
+cd short/
+```
+
+<hr>
+
 - Rename ``` .env.example ``` file to ``` .env ```
 - Adjust ``` .env ``` file as you want
   
