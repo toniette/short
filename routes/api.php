@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/stats/{id?}', [LinkController::class, 'stats'])->name('links.stats');
 Route::get('/{id}', [LinkController::class, 'show'])->name('links.redirect');
 Route::delete('/urls/{id}', [LinkController::class, 'destroy'])->name('links.destroy');
-Route::get('/stats/{id?}', [LinkController::class, 'stats'])->name('stats');
 
 Route::group(['prefix' => '/users'], function () {
     Route::post('/', [UserController::class, 'store'])->name('users.store');

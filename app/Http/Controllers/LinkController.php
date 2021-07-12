@@ -5,22 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreLinkRequest;
 use App\Models\Link;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
 class LinkController extends Controller
 {
-    public function show($id): RedirectResponse|JsonResponse
+    public function show($id)
     {
         try {
             $link = Link::find($id);
             $link->hits++;
             $link->save();
             return Redirect::to($link->url, 301);
-        } catch (\Throwable $throwable) {
-            abort(500);
+        } catch (\Throwable) {
+            abort(404);
         }
 
     }
@@ -62,7 +59,7 @@ class LinkController extends Controller
     {
         try {
             if ($id) {
-                return Link::find($id);
+                return Link::find($id) ?? response(status: 404);
             }
             $links = Link::all();
             return response()->json([
