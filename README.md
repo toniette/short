@@ -27,12 +27,23 @@ cd short/
 
 - Run:
 ```bash
-docker run --rm \ -u "$(id -u):$(id -g)" \ -v $(pwd):/opt \ -w /opt \ laravelsail/php80-composer:latest \ composer install --ignore-platform-reqs
-alias sail='bash vendor/bin/sail'
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/opt \
+    -w /opt \
+    laravelsail/php80-composer:latest \
+    composer install --ignore-platform-reqs
+```
+```bash
 vendor/bin/sail up -d
+```
+```bash
 vendor/bin/sail artisan key:generate
+```
+```bash
 sail artisan migrate
 ```
+
 <hr>
 
 - Access the endpoints through this base URL:
