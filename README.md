@@ -14,10 +14,12 @@ git clone https://github.com/luispaulotoniettefranca/short.git
 <hr>
 
 - Access project folder
+- Rename ``` .env.example ``` file to ``` .env ```
 - Run:
 ```bash
 sail up -d
 sail composer install
+sail artisan key:generate
 sail artisan migrate
 ```
 <hr>
